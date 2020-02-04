@@ -1,5 +1,6 @@
 package com.strandberg;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -18,8 +19,13 @@ public class Main {
     System.out.println("Enter yor placement (1-9)");
     int pos = scan.nextInt();
 
-    System.out.println(pos);
+         System.out.println(pos);
 
+         placePiece(gameBoard, pos, "player");
+
+        Random rand = new Random();
+        int cpuPos = rand.nextInt(9) + 1;
+        placePiece(gameBoard, cpuPos, "cpu");
 
         printGameBoard(gameBoard);
     }
@@ -35,7 +41,7 @@ public class Main {
 
     public static void placePiece(char [][] gameBoard, int pos, String user) {
 
-        char symbol = 'X';
+        char symbol = ' ';
 
         if(user.equals("player")) {
             symbol = 'X';
